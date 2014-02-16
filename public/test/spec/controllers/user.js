@@ -3,23 +3,37 @@
  */
 'use strict';
 
-describe('Controller: UsersController', function(){
+describe('Controller: Users', function(){
     //Cargamos la aplicacion
     beforeEach(module('mainApp'));
 
     //Declaramos la variables que vamos autilizar
-    var UsersCtl,
+    var UsersController,
+        controller,
+        httpBackend,
         scope;
 
 
-    beforeEach(inject(function($controller, $rootScope){
+    beforeEach(inject(function($controller, $rootScope,$httpBackend){
         scope = $rootScope.$new();
-        UsersCtl = $controller('UsersCtl',{
-            $scope: scope
-        });
+        httpBackend = $httpBackend;
+        controller = $controller;
     }));
 
-    it('should have a title', function(){
-        expect(scope.title).toBe('Lista de Usuarios');
+    //Nos aseguramos que no queden expectativas
+    afterEach(function(){
+        httpBackend.verifyNoOutstandingExpectation();
+        httpBackend.verifyNoOutstandingRequest();
     });
+
+    it('should fetch a list of users', function(){
+        httpBackend.expectGET('/admin/user').respond();
+        UsersController = controller('UsersController',{
+            $scope:scope
+        });
+
+        httpBackend.flush();
+    });
+
+
 });

@@ -19,3 +19,9 @@ Route::get('/', function()
 Route::get('/admin', function(){
     return View::make('admin.home');
 });
+
+Route::group(array('prefix'=>'admin') , function(){
+
+    Route::resource('user','UserController');
+
+});

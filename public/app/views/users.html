@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <ul>
+        <li data-ng-repeat="user in users">
+            <ul>
+                <li>
+                    ID: {{ user.id }}
+                </li>
+                <li>
+                    Username: {{ user.username }}
+                </li>
+                <li>
+                    Email: {{ user.email }}
+                </li>
+                <li>
+                    Creado el: {{ user.created_at }}
+                </li>
+                <li>
+                    Acciones: <a href="#/user/{{ user.id }}">Editar</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

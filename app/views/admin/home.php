@@ -53,7 +53,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">Usuarios <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#/usuarios">Lista de Usuarios</a></li>
+                            <li><a href="#/users">Lista de Usuarios</a></li>
                             <li><a href="#/usuario">Crear Usuario</a></li>
                         </ul>
                     </li>
@@ -98,10 +98,10 @@
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="/app/scripts/app.js"></script>
-<script src="/app/scripts/controllers/MainApp.js"></script>
+<script src="/app/scripts/MainApp.js"></script>
 <script src="/app/scripts/controllers/MainController.js"></script>
 <script src="/app/scripts/controllers/UserController.js"></script>
+<script src="/app/scripts/services/UserService.js"></script>
 <!-- endbuild -->
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

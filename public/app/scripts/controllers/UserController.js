@@ -4,6 +4,9 @@
 'use strict';
 
 angular.module('mainApp')
-    .controller('UsersCtl', function($scope){
-        $scope.title = 'Lista de Usuarios';
+    .controller('UsersController', function($scope,UserService){
+        $scope.users = UserService.query();
+    })
+    .controller('UserController', function($scope,UserService){
+
     });
