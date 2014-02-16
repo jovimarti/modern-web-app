@@ -21,11 +21,11 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/app/bower_components/sass-bootstrap/dist/css/bootstrap.css">
+
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="/app/styles/main.scss">
+    <link rel="stylesheet" href="/app/bower_components/bootswatch/slate/bootstrap.min.css">
     <!-- endbuild -->
 </head>
 <body ng-app="mainApp">
@@ -34,7 +34,75 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="container" ng-view=""></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+
+            <div class="collapse navbar-collapse" ng-class="!navColladsed && 'in' ">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Usuarios <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/usuarios">Lista de Usuarios</a></li>
+                            <li><a href="#/usuario">Crear Usuario</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Servicios <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/servicios">Lista de Servicios</a></li>
+                            <li><a href="#/servicio">Agregar Servicio</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#/galeria">Galeria de Fotos</a>
+                    </li>
+                    <li>
+                        <a href="#/archivos">Galeria de Archivos</a>
+                    </li>
+                </ul>
+            </div>
+            </nav>
+        </div>
+    </div>
+    <div ng-view=""></div>
+</div>
+
+
+
+<!--[if lt IE 9]>
+<script src="/app/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/app/bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/app/bower_components/jquery/jquery.js"></script>
+<script src="/app/bower_components/angular/angular.js"></script>
+<script src="/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/app/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/app/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/app/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/app/bower_components/angular-route/angular-route.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="/app/scripts/app.js"></script>
+<script src="/app/scripts/controllers/MainApp.js"></script>
+<script src="/app/scripts/controllers/MainController.js"></script>
+<script src="/app/scripts/controllers/UserController.js"></script>
+<!-- endbuild -->
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
@@ -46,27 +114,5 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
 </script>
-
-<!--[if lt IE 9]>
-<script src="/app/bower_components/es5-shim/es5-shim.js"></script>
-<script src="/app/bower_components/json3/lib/json3.min.js"></script>
-<![endif]-->
-
-<!-- build:js scripts/vendor.js -->
-<!-- bower:js -->
-<script src="/app/bower_components/jquery/jquery.js"></script>
-<script src="/app/bower_components/angular/angular.js"></script>
-<script src="/app/bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
-<script src="/app/bower_components/angular-resource/angular-resource.js"></script>
-<script src="/app/bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="/app/bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="/app/bower_components/angular-route/angular-route.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
-
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="/app/scripts/app.js"></script>
-<script src="/app/scripts/controllers/main.js"></script>
-<!-- endbuild -->
 </body>
     </html>
